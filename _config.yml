@@ -7,7 +7,7 @@ plugins:
 
 
 collections:
-  -projects:
+  projects:
     output: true
     permalink: /projects/:name/
 
@@ -16,5 +16,6 @@ navigation:
     url: /
   - title: Projects
     url: /projects/
+
 
 
