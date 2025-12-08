@@ -1,5 +1,5 @@
 ---
-title: "DML-Air-Engine-(Manually Machined)"
+title: "DML-Air-Engine-(CNC)"
 date: 2025-12-07
 ---
 
