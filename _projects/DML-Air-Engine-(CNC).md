@@ -11,3 +11,5 @@ This project is a CNC-machined DML Air Engine. Here are pictures and details of 
 
 ![Front view of the engine](/assets/images/air_engine_cnc_1.jpg)
 ![Side view of the engine](/assets/images/air_engine_cnc_2.jpg)
+
+IN _PROJECTS FOLDER
