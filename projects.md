@@ -6,8 +6,6 @@ collection: projects
 entries_layout: grid
 classes: wide
 ---
-Sample document listing for the collection `_projects`.
-
 {% for project in site.projects %}
   <h2>
     <a href="{{ project.url }}">
