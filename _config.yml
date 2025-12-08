@@ -1,9 +1,13 @@
+title: My Project Portfolio
+description: CNC, machining, and fabrication projects
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
 plugins:
   - jekyll-include-cache
 
+
 collections:
   projects:
     output: true
     permalink: /projects/:name/
+
