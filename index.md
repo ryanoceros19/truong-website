@@ -5,6 +5,6 @@ header:
   show_navigation: true
 author_profile: false
 show_posts: false
+collection: projects
+entries_layout: grid
 ---
-
-Welcome to my portfolio! Click one of the links below to explore.
