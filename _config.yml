@@ -1,4 +1,4 @@
-title: My Project Portfolio
+title: Ryan Truong
 description: CNC, machining, and fabrication projects
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
@@ -10,4 +10,5 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
+
 
