@@ -3,6 +3,7 @@ layout: home
 title: "Ryan Truong"
 header:
   show_navigation: true
-  overlay_image: ""
 author_profile: false
 ---
+
+Welcome to my portfolio! Click one of the links below to explore.
