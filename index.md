@@ -6,4 +6,4 @@ header:
 ---
 Welcome to my website! Feel free to explore my website and check out my projects!
 
-<a href="/projects/" class="button">Projects</a>
+<a href="truong-website/projects/" class="button">Projects</a>
