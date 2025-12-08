@@ -1,5 +1,5 @@
 ---
-layout: collection
+layout: Default
 title: "Projects"
 collection: projects
 entries_layout: grid
