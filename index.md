@@ -5,6 +5,7 @@ header:
   show_navigation: true
 author_profile: false
 show_posts: false
-collection: projects
-entries_layout: grid
+main:
+  -title: "Projects"
+  -url: /projects/
 ---
