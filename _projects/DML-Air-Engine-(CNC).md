@@ -1,6 +1,10 @@
 ---
-title: "DML-Air-Engine-(CNC)"
-date: 2025-12-07
+title: DML Air Engine (CNC)
+layout: single
+header:
+  overlay_image: /assets/images/air_engine.jpg
+  overlay_filter: 0.4
 ---
+Your project description goes here...
 
-Here is my DML air engines that I CNCed
+Add images, steps, notes, etc.
