@@ -11,8 +11,9 @@ collections:
     output: true
     permalink: /projects/:name/
 
-nav:
+navigation:
   - title: Home
     url: /
   - title: Projects
     url: /projects/
+
