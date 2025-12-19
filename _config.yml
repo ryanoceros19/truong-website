@@ -11,7 +11,7 @@ collections:
     output: true
     permalink: /projects/:name/
 
-navigation:
+main:
   - title: Home
     url: /
   - title: Projects
@@ -73,6 +73,7 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
 
 
 
