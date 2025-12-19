@@ -1,5 +1,6 @@
 ---
 layout: home
+author_profile: true
 title: "Ryan Truong"
 header:
   show_navigation: true
