@@ -20,7 +20,7 @@ main:
 author:
   name   : "Ryan Truong"
   avatar : "/assets/images/Ryan_Professional_Image.jpg"
-  bio    : "I'm a 4th year Mechanical Engineering student at the University of Florida with a focus on Manufacturing Engineering"
+  bio    : "4th year Mechanical Eng. student at UF with a focus on Manufacturing Eng."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
@@ -73,6 +73,7 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
 
 
 
