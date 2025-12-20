@@ -9,5 +9,6 @@ header:
 This project is a CNC-machined DML Air Engine
 
 Here are pictures and details of the project.
+![image-center](/assets/images/dml-engine-cnc/DML_CNC_FrontAngle.JPG){: .align-center}
 
 [Front view of the engine](/assets/images/dml-engine-cnc/DML_CNC_FrontAngle.JPG)
