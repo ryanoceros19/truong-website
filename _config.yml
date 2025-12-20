@@ -26,7 +26,7 @@ author:
       icon: "fas fa-fw fa-link"
       url: "https://"
     - label: "LinkedIn"
-      icon: "fab fa-fw fa-square-linkedin"
+      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/ryan-truong-rt79262026/"
    # - label: "GitHub"
    #   icon: "fab fa-fw fa-github"
@@ -73,6 +73,7 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
 
 
 
