@@ -5,7 +5,6 @@ layout: single
 header:
   overlay_image: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
   overlay_filter: 0.4
-image: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
 ---
 
 This project is a CNC-machined DML Air Engine
