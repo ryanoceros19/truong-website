@@ -22,6 +22,9 @@ author:
   avatar : "/assets/images/Ryan_Professional_Image.jpg"
   bio    : "4th year Mechanical Eng. student at UF with a focus on Manufacturing Eng."
   links:
+    - label: "ryantruongcollege@gmail.com"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:ryantruongcollege@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://"
@@ -73,6 +76,7 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
 
 
 
