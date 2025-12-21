@@ -15,4 +15,4 @@ In a prior semester, the components were manually made by TAs. The components we
 
 I modeled base, flywheel, piston block, and piston in Fusion 360. Then I explored the tool library in the CNC Mill and identified other tools that I would need to make the parts. After identifying the tools, I calculated and input the tool information including speeds and feeds. Then I programmed the tool paths to create each feature. After having a colleague check my CAM, I ran the CAM for the base, piston block, and flywheel. Besides the base that took a couple minor adjustments, all the parts came out exactly as planned. 
 
-{% include figure popup=true image_path="/assets/images/dml-engine-cnc/DML_CNC_FrontAngle.JPG" alt="this is a placeholder image" caption="This is a figure caption." %}
+{% include figure popup=true image_path="/assets/images/dml-engine-cnc/DML_CNC_FrontAngle.JPG" alt="this is a placeholder image" caption="Air Engine Front View" %}
