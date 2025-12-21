@@ -77,9 +77,10 @@ tag_archive:
   type: liquid
   path: /tags/
 
-
-
-
-
-
-
+gallery_DML_CNC_engine:
+  -image_path: /assets/dml-engine-cnc/DML_CNC_CornerAngle.JPG
+    title: Air Engines Corner View
+  -image_path: /assets/dml-engine-cnc/DML_CNC_FrontAngle.JPG
+    title: Air Engines Front View
+  -image_path: /assets/dml-engine-cnc/DML_CNC_TopDown.JPG
+    title: Air Engines Top View
