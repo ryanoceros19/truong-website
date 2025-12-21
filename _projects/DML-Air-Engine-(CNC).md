@@ -11,10 +11,13 @@ classes: wide
 gallery_DML_CNC_engine:
   - image_path: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
     title: "Air Engine Corner View"
+    url: https://ryanoceros19.github.io/truong-website/assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
   - image_path: /assets/images/dml-engine-cnc/DML_CNC_FrontAngle.JPG
     title: "Air Engine Front View"
+    url: https://ryanoceros19.github.io/truong-website/assets/images/dml-engine-cnc/DML_CNC_FrontAngle.JPG
   - image_path: /assets/images/dml-engine-cnc/DML_CNC_TopDown.JPG
     title: "Air Engine Top View"
+    url: https://ryanoceros19.github.io/truong-website/assets/images/dml-engine-cnc/DML_CNC_TopDown.JPG
 ---
 In Design & Manufacturing Lab (DML), students are tasked with making a full air engine using manufacturing techniques on the manual mill and lathe. On the first day, students are divided into groups and handed pre-made air engine components to assemble. After assembling the engines, they test to the engines to discover that they don't work. They are tasked with taking appart the engine to diagnose the problem. Using calipers and the origianl part drawings, they learn how to identify critical features.
 
