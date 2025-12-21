@@ -6,6 +6,8 @@ header:
   overlay_image: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
   overlay_filter: 0.4
 ---
+
+
 In Design & Manufacturing Lab (DML), students are tasked with making a full air engine using manufacturing techniques on the manual mill and lathe. On the first day, students are divided into groups and handed pre-made air engine components to assemble. After assembling the engines, they test to the engines to discover that they don't work. They are tasked with taking appart the engine to diagnose the problem. Using calipers and the origianl part drawings, they learn how to identify critical features.
 
 In a prior semester, the components were manually made by TAs. The components were in tolerance but still slightly off. Also, the steel flywheel had rusted over time. Over a summer, I decided to practice my CNC experience and make the parts as precisely as possible. 
