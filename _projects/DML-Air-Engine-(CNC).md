@@ -24,4 +24,4 @@ I modeled base, flywheel, piston block, and piston in Fusion 360. Then I explore
 
 {% include figure popup=true image_path="/assets/images/dml-engine-cnc/DML_CNC_FrontAngle.JPG" alt="this is a placeholder image" caption="Air Engine Front View" %}
 
-{% include gallery_DML_CNC_engine caption="This is a sample gallery with **Markdown support**." %}
+{% include gallery id="gallery_DML_CNC_engine" caption="This is a sample gallery with **Markdown support**." %}
