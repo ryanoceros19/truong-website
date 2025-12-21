@@ -7,6 +7,14 @@ header:
   overlay_filter: 0.4
 excerpt: "To improve the Design & Manufacturing Lab air engine activity, I modeled and precisely manufactured new engine components in Fusion 360—replacing previously hand-made, slightly inaccurate parts—by developing validated CAM toolpaths that produced functional, in-tolerance components for student diagnostics and learning."
 classes: wide
+
+gallery_DML_CNC_engine:
+  - image_path: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
+    title: "Air Engine Corner View"
+  - image_path: /assets/images/dml-engine-cnc/DML_CNC_FrontAngle.JPG
+    title: "Air Engine Front View"
+  - image_path: /assets/images/dml-engine-cnc/DML_CNC_TopDown.JPG
+    title: "Air Engine Top View"
 ---
 In Design & Manufacturing Lab (DML), students are tasked with making a full air engine using manufacturing techniques on the manual mill and lathe. On the first day, students are divided into groups and handed pre-made air engine components to assemble. After assembling the engines, they test to the engines to discover that they don't work. They are tasked with taking appart the engine to diagnose the problem. Using calipers and the origianl part drawings, they learn how to identify critical features.
 
