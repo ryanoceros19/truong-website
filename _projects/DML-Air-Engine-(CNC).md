@@ -6,6 +6,7 @@ header:
   overlay_image: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
   overlay_filter: 0.4
 excerpt: "To improve the Design & Manufacturing Lab air engine activity, I modeled and precisely manufactured new engine components in Fusion 360—replacing previously hand-made, slightly inaccurate parts—by developing validated CAM toolpaths that produced functional, in-tolerance components for student diagnostics and learning."
+classes: wide
 
 gallery_DML_CNC_engine:
   - image_path: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
