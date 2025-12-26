@@ -28,7 +28,7 @@ In Design & Manufacturing Lab (DML), students are tasked with making a full air 
 
 {% include gallery id="gallery_DML_CNC_engine" caption="Gallery of **DML Air Engine (CNC)**." %}
 
-~~~ python
+``` 
 import random
 import time
 
@@ -378,4 +378,4 @@ Select Menu Option:
 if __name__ == "__main__":
     main()
 
-~~~
+```
