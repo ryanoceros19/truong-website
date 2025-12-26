@@ -4,6 +4,9 @@ author_profile: true
 title: "Welcome!"
 header:
   show_navigation: true
+
+class: wide
+  
 feature_row:
   - image_path: /assets/images/cnc-tiki/tiki_front.jpg
     alt: "Aluminum CNC Tiki Front"
