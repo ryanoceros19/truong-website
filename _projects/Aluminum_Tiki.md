@@ -1,5 +1,5 @@
 ---
-title: "Aluminum CNC Tiki"
+title: "Aluminum CNC Tiki (UNDER CONSTRUCTION)"
 date: 2025-12-26
 layout: single
 header:
