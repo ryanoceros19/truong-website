@@ -22,7 +22,7 @@ gallery_DML_CNC_engine:
 
 In Design & Manufacturing Lab (DML), students are taught how to use a tap and drill chart. The chart they use is given below.
 
-***INSERT TAP AND DRILL CHART PDF HERE***
+<iframe src="https://web.mae.ufl.edu/designlab/Lab%20Assignments/EML2322L%20Tap%20Drill%20Chart.pdf"></iframe> 
 
 Depending on the material and fastener size, a different thread pitch and tap drill size is needed in order to make a tapped hole. Students are often tested on this topic but very few practice problems are provided to students.
 
