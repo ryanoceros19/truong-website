@@ -39,7 +39,8 @@ Welcome to my website! Feel free to explore my website and check out my projects
 
 
 
-<h2 align="center">Notable Projects</h1>
+<h1 align="center">Notable Projects</h1>
+
 
 {% include feature_row %}
 
