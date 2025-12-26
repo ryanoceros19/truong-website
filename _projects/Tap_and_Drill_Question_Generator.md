@@ -7,7 +7,7 @@ header:
   overlay_filter: 0.4
 excerpt: "This project uses Python to automatically generate realistic practice problems for tap and drill charts—covering standard and metric fasteners, hole callouts, and depths—to help DML students better understand and practice threaded hole design concepts."
 classes: wide
-read_time: true
+read_time: 3
 exclude_code_from_readtime: true
 
 gallery_DML_CNC_engine:
