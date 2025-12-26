@@ -3,7 +3,7 @@ title: "Aluminum CNC Tiki (UNDER CONSTRUCTION)"
 date: 2025-12-26
 layout: single
 header:
-  overlay_image: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
+  overlay_image: /assets/images/cnc-tiki/tiki_back_lab.jpg
   overlay_filter: 0.4
 excerpt: "Manufacturing an Aluminum Tiki Gift using CNC Mill"
 classes: wide
