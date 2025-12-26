@@ -25,7 +25,7 @@ feature_row:
   - image_path: /assets/images/
     title: "Tap & Drill Question Generator in Python"
     excerpt: "Python Code that generates varying questions including tap drill size recall and hole callout recall"
-    url: projects/tap-and-dril-question-generator/
+    url: projects/tap-and-drill-question-generator/
     btn_label: "Read More"
     btn_class: "btn--inverse"
 ---
