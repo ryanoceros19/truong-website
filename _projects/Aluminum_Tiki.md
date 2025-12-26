@@ -7,7 +7,6 @@ header:
   overlay_filter: 0.4
 excerpt: "Manufacturing an Aluminum Tiki Gift using CNC Mill"
 classes: wide
-read_time: true
 
 gallery_DML_CNC_engine:
   - image_path: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
