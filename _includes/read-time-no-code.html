@@ -1,7 +1,7 @@
-{% assign content = page.content %}
+{% assign content = include.content | default: page.content %}
 
-{% assign content = content | replace_regex: '```[\s\S]*?```', '' %}
-{% assign content = content | replace_regex: '~~~[\s\S]*?~~~', '' %}
+{% assign content = content | replace_regex: '```(.|\n|\r)*?```', '' %}
+{% assign content = content | replace_regex: '~~~(.|\n|\r)*?~~~', '' %}
 {% assign content = content | replace_regex: '`[^`]+`', '' %}
 
 {% assign words = content | strip_html | number_of_words %}
