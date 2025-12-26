@@ -9,3 +9,5 @@ I am a 4th year Mechnical Engineering student with a Computer Science minor. I h
 Welcome to my website! Feel free to explore my website and check out my projects!
 
 <a href="projects/" class="button">Projects</a>
+
+*Note: For the best experience, access this website using a computer/laptop. Mobile devices may distort/alter formatting
