@@ -3,7 +3,7 @@ title: "Tap & Drill Question Generator (Python) (UNDER CONSTRUCTION)"
 date: 2025-12-26
 layout: single
 header:
-  overlay_image: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
+  overlay_image: /assets/images/tap-and-drill-code.png
   overlay_filter: 0.4
 excerpt: "This project uses Python to automatically generate realistic practice problems for tap and drill charts—covering standard and metric fasteners, hole callouts, and depths—to help DML students better understand and practice threaded hole design concepts."
 classes: wide
