@@ -8,20 +8,20 @@ feature_row:
   - image_path: /assets/images/cnc-tiki/tiki_front.jpg
     alt: "Aluminum CNC Tiki Front"
     title: "Aluminum CNC Tiki"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
-    url: project/aluminum-tiki/
+    excerpt: "Aluminum CNC Project involving CNC Mill, Fusion360, CAM, DFM"
+    url: projects/aluminum-tiki/
     btn_label: "Read More"
     btn_class: "btn--inverse"
   - image_path: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
     alt: "DML CNC Engines Angle View"
     title: "CNC DML Air Engines"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
+    excerpt: "Air Engines Manufactured using CNC Mill"
     url: projects/dml-air-engine-cnc/
     btn_label: "Read More"
     btn_class: "btn--inverse"
   - image_path: /assets/images/
-    title: "Tap & Drill Question Generator"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
+    title: "Tap & Drill Question Generator in Python"
+    excerpt: "Python Code that generates varying questions including tap drill size recall and hole callout recall"
     url: projects/tap-and-dril-question-generator/
     btn_label: "Read More"
     btn_class: "btn--inverse"
