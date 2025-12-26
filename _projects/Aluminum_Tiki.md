@@ -14,7 +14,7 @@ gallery_tiki_sketch:
     url: https://ryanoceros19.github.io/truong-website/assets/images/cnc-tiki/tiki_front_draft.jpg
   - image_path: /assets/images/cnc-tiki/tiki_back_draft.jpg
     title: "Sketch of Tiki Back & Side View"
-    url: https://ryanoceros19.github.io/truong-website/assets/images/cnc-tiki/tiki_back_draft.jpg
+    url: https://ryanoceros19.github.io/truong-website/assets/images/cnc-tiki/tiki_back_draft.PNG
 
 gallery_tiki:
   - image_path: /assets/images/cnc-tiki/tiki_front_lab.jpg
