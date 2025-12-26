@@ -1,6 +1,6 @@
 ---
 title: "DML Air Engine CNC"
-date: 2025-26-07
+date: 2025-12-26
 layout: single
 header:
   overlay_image: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
