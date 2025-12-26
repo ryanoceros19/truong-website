@@ -1,5 +1,5 @@
 ---
-title: "Aluminum Speed Vice Handle"
+title: "Aluminum Speed Vice Handle (UNDER CONSTRUCTION)"
 date: 2025-12-26
 layout: single
 header:
