@@ -35,7 +35,7 @@ Welcome to my website! Feel free to explore my website and check out my projects
 [Projects](projects/){: .btn .btn--primary}
 [About](about/){: .btn .btn--primary}
 
-**Notable Projects**
+#**Notable Projects**
 {: .text-center}
 
 {% include feature_row %}
