@@ -1,5 +1,5 @@
 ---
-title: "Template Project"
+title: "Tap & Drill Question Generator (Python)"
 date: 2025-12-26
 layout: single
 header:
