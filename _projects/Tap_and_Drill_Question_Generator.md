@@ -7,7 +7,7 @@ header:
   overlay_filter: 0.4
 excerpt: "This project uses Python to automatically generate realistic practice problems for tap and drill charts—covering standard and metric fasteners, hole callouts, and depths—to help DML students better understand and practice threaded hole design concepts."
 classes: wide
-read_time: 3
+manual_read_time: 2
 exclude_code_from_readtime: true
 
 gallery_DML_CNC_engine:
@@ -37,3 +37,355 @@ I then wrote the logic for the second option. This option asks for the entire ho
 For Version 3, I input the metric tap and drill values into code, again using AI to help develop a useful format to store the values. Then I wrote the third and fourth options which were the same as option 1 & 2 but for the metric values. Halfway through, I realized that options 1 & 3 and 2 & 4 had very similar logic structures, so I wrote functions to remove the repeated logic. The use of functions made options 5 & 6 very easy to implement. Option 5 generates a tap drill question for a standard or metric fastener while option 6 generates a hole callout question for a standard or metric fastener.
 
 Currently, the hole callout questions assume that the holes are through holes. For Version 4, I plan to randomly generate a hole depth so that students can practice identifying tap drill depths and tap depths. Many students make the mistake on exams of drilling to the same depth as the tap. I hope that Verson 4 can reinforce the rule of thumb taught in DML: the the tap drill depth should be the tap depth plus one fastener diameter. For example, if I wanted thread for a 1/4" fastener to be 0.5" deep, then the tap drill should be drilled 0.75" deep.
+
+``` python
+import random
+import time
+
+# NOTE: This question generator only tests for coarse and fine thread. It does not include ultrafine thread (third tpi)
+# Step 1: Open the online compiler (use the link below)
+# https://www.programiz.com/python-programming/online-compiler/
+# Step 2: Delete the 3 lines of code and paste this ENTIRE TEXT FILE where the 3 lines were
+# Step 3: Press the "run" button near the top of the page
+# Step 4: You should now see a text-based menu in the Output panel. Follow the instructions
+
+
+class TPI:
+    """
+    Thread Pitch Information (TPI) class.
+    """
+    def __init__(self, tpi: int, minor_diameter: float, al_dec: float, stl_dec: float):
+        if not isinstance(tpi, int) or tpi <= 0:
+            raise ValueError("TPI must be a positive integer.")
+        if not all(isinstance(val, (int, float)) and val >= 0 for val in [minor_diameter, al_dec, stl_dec]):
+            raise ValueError("Diameters and decimals must be non-negative numbers.")
+        self.tpi = tpi
+        self.minor_diameter = float(minor_diameter)
+        self.al_dec = float(al_dec)
+        self.stl_dec = float(stl_dec)
+
+    def __repr__(self):
+        return (f"TPI(tpi={self.tpi}, minor_diameter={self.minor_diameter}, "
+                f"al_dec={self.al_dec}, stl_dec={self.stl_dec})")
+
+
+class ThreadPitch:
+    """
+    Thread Pitch class.
+    Stores thread pitch (TPI for imperial, pitch in mm for metric)
+    and material-specific tap drill sizes.
+    """
+    def __init__(self, thread_pitch: float, al_dec: float, stl_dec: float):
+        if not isinstance(thread_pitch, (int, float)) or thread_pitch <= 0:
+            raise ValueError("Thread pitch must be a positive number.")
+        if not all(isinstance(val, (int, float)) and val >= 0 for val in (al_dec, stl_dec)):
+            raise ValueError("Tap drill sizes must be non-negative numbers.")
+
+        self.thread_pitch = float(thread_pitch)
+        self.al_dec = float(al_dec)
+        self.stl_dec = float(stl_dec)
+
+    def __repr__(self):
+        return (
+            f"ThreadPitch(thread_pitch={self.thread_pitch}, "
+            f"al_dec={self.al_dec}, stl_dec={self.stl_dec})"
+        )
+
+
+class StandardScrew:
+    """
+    Standard Screw class.
+    """
+    def __init__(self, size: str, major_diameter: float, tpi_list: list[TPI] = None):
+        if not isinstance(size, str) or not size.strip():
+            raise ValueError("Size must be a non-empty string.")
+        if not isinstance(major_diameter, (int, float)) or major_diameter <= 0:
+            raise ValueError("Major diameter must be a positive number.")
+        if tpi_list is not None and not all(isinstance(t, TPI) for t in tpi_list):
+            raise TypeError("tpi_list must contain only TPI objects.")
+
+        self.size = size
+        self.major_diameter = float(major_diameter)
+        self.tpi_list = tpi_list if tpi_list is not None else []
+
+    def add_tpi(self, tpi: TPI):
+        if not isinstance(tpi, TPI):
+            raise TypeError("Only TPI objects can be added.")
+        self.tpi_list.append(tpi)
+
+    def __repr__(self):
+        return (f"StandardScrew(size='{self.size}', major_diameter={self.major_diameter}, "
+                f"tpi_list={self.tpi_list})")
+
+
+class MetricScrew:
+    """
+    Metric Screw class.
+    Does NOT store major or minor diameter.
+    """
+    def __init__(self, size: str, pitch_list: list[ThreadPitch] = None):
+        if not isinstance(size, str) or not size.startswith("M"):
+            raise ValueError("Metric screw size must be a string like 'M6'.")
+        if pitch_list is not None and not all(isinstance(p, ThreadPitch) for p in pitch_list):
+            raise TypeError("pitch_list must contain only ThreadPitch objects.")
+
+        self.size = size
+        self.pitch_list = pitch_list if pitch_list is not None else []
+
+    def add_pitch(self, pitch: ThreadPitch):
+        if not isinstance(pitch, ThreadPitch):
+            raise TypeError("Only ThreadPitch objects can be added.")
+        self.pitch_list.append(pitch)
+
+    def __repr__(self):
+        return f"MetricScrew(size='{self.size}', pitch_list={self.pitch_list})"
+
+
+def format_fastener(screw):
+    # --- Format fastener display ---
+    if isinstance(screw, StandardScrew):
+        if screw.size.isdigit():
+            # Edge case for 1-inch screw
+            if screw.size == "1" and len(screw.tpi_list) == 3:
+                fastener_display = '1"'  # 1-inch major diameter
+            else:
+                fastener_display = f"#{screw.size}"  # All other integer sizes use #_
+        else:
+            fastener_display = f'{screw.size}"'  # Fractional sizes
+    else:
+        fastener_display = f'{screw.size}'
+    return fastener_display
+
+
+def tap_drill_generator(screw, material, tap_drill):
+
+    fastener_display = format_fastener(screw)
+
+    print(f"\nI want a(n) {fastener_display} screw in {material}. What size tap drill do I need?")
+    print("(EX: 0.384 or 4.60)")
+    user_guess = float(input())
+    if user_guess != tap_drill:
+        print("Incorrect! The correct tap drill size was " + str(tap_drill) + "\n\n\n")
+        time.sleep(2)  # Delay for 2 seconds
+    else:
+        print("Correct!\n\n\n")
+        time.sleep(1)  # Delay for 1 second
+
+
+def hole_callout_generator(screw, material, tap_drill, tpi_thread_pitch, thread_type):
+    num_holes = random.randint(1, 10)
+
+    fastener_display = format_fastener(screw)
+
+    print(
+        f"\nAssume the tapped hole is THRU. I need to use a {fastener_display} screw in {material} in {num_holes} places.")
+    print("First, enter the correct size tap drill\n(EX: 0.384 or 4.60):")
+    user_drill = float(input())
+
+    if user_drill != tap_drill:
+        print("Incorrect! The correct tap drill size was " + str(tap_drill) + "\n\n\n")
+        time.sleep(2)  # Delay for 2 seconds
+        return
+    else:
+        print("Correct!\n")
+
+    # Thread specification
+    if isinstance(screw, StandardScrew):
+        correct_thread_spec = f"{screw.size}-{tpi_thread_pitch.tpi} {thread_type}"
+    else:
+        correct_thread_spec = f"{screw.size}x{tpi_thread_pitch.thread_pitch:.2f}"
+    print(f"Based on the given information, please give the thread specification\n(EX: 4-20 UNF OR M2.2-0.24)")
+    user_thread = input().strip().upper()
+
+    if user_thread != correct_thread_spec.upper():
+        print(f"Incorrect! The correct thread specification was {correct_thread_spec}\n\n\n")
+        time.sleep(2)  # Delay for 2 seconds
+        return
+    else:
+        print("Correct!\n")
+
+    # Number of places
+    correct_places = f"{num_holes} PLACES"
+    print("How many places?")
+    user_places = input().strip().upper()
+
+    if user_places != correct_places:
+        print(f"Incorrect! The correct answer was {correct_places}\n\n\n")
+        time.sleep(2)  # Delay for 3 seconds
+
+        return
+    else:
+        print("Correct!\n")
+
+    # Final formatted callout
+    print("FINAL HOLE CALLOUT:")
+    print(f"{tap_drill:.2f} THRU")
+    print(f"{correct_thread_spec} THRU")
+    print(f"{num_holes} PLACES\n\n\n")
+    time.sleep(1)  # Delay for 1 second
+
+
+def main():
+    standard_screws = []  # List of standard screw objects
+    metric_screws = []  # List of metric screw objects
+
+    # Data extracted from the PDF (Standard Tap Chart section)
+    standard_screw_data = [
+        ("0", 0.060, [(80, 0.045, 0.047, 0.052)]),
+        ("1", 0.073, [(64, 0.054, 0.060, 0.063), (72, 0.056, 0.060, 0.064)]),
+        ("2", 0.086, [(56, 0.064, 0.070, 0.073), (64, 0.067, 0.070, 0.076)]),
+        ("3", 0.099, [(48, 0.073, 0.079, 0.086), (56, 0.077, 0.082, 0.089)]),
+        ("4", 0.112, [(40, 0.081, 0.089, 0.096), (48, 0.086, 0.094, 0.098)]),
+        ("5", 0.125, [(40, 0.094, 0.102, 0.109), (44, 0.097, 0.104, 0.110)]),
+        ("6", 0.138, [(32, 0.100, 0.107, 0.116), (40, 0.107, 0.113, 0.120)]),
+        ("8", 0.164, [(32, 0.126, 0.136, 0.144), (36, 0.130, 0.136, 0.147)]),
+        ("10", 0.190, [(24, 0.139, 0.157, 0.161), (32, 0.152, 0.159, 0.170)]),
+        ("12", 0.216, [(24, 0.165, 0.177, 0.189), (28, 0.172, 0.182, 0.194), (32, 0.178, 0.185, 0.196)]),
+        ("1/4", 0.250, [(20, 0.189, 0.201, 0.219), (28, 0.206, 0.213, 0.228), (32, 0.212, 0.219, 0.228)]),
+        ("5/16", 0.313, [(18, 0.244, 0.257, 0.277), (24, 0.261, 0.272, 0.281), (32, 0.274, 0.281, 0.290)]),
+        ("3/8", 0.375, [(16, 0.298, 0.313, 0.332), (24, 0.324, 0.332, 0.348), (32, 0.337, 0.344, 0.358)]),
+        ("7/16", 0.438, [(14, 0.350, 0.368, 0.391), (20, 0.376, 0.391, 0.406), (28, 0.394, 0.404, 0.413)]),
+        ("1/2", 0.500, [(13, 0.406, 0.422, 0.453), (20, 0.439, 0.453, 0.469), (28, 0.456, 0.469, 0.469)]),
+        ("9/16", 0.563, [(12, 0.460, 0.484, 0.516), (18, 0.494, 0.516, 0.531), (24, 0.511, 0.516, 0.531)]),
+        ("5/8", 0.625, [(11, 0.514, 0.531, 0.563), (18, 0.557, 0.578, 0.594), (24, 0.574, 0.578, 0.594)]),
+        ("11/16", 0.688, [(24, 0.636, 0.641, 0.656)]),
+        ("3/4", 0.750, [(10, 0.627, 0.656, 0.688), (16, 0.673, 0.688, 0.703), (20, 0.689, 0.703, 0.719)]),
+        ("13/16", 0.813, [(20, 0.751, 0.766, 0.781)]),
+        ("7/8", 0.875, [(9, 0.739, 0.766, 0.797), (14, 0.787, 0.813, 0.828), (20, 0.814, 0.828, 0.844)]),
+        ("15/16", 0.938, [(20, 0.876, 0.891, 0.906)]),
+        ("1", 1.000, [(8, 0.847, 0.875, 0.922), (12, 0.898, 0.938, 0.953), (20, 0.939, 0.953, 0.969)]),
+    ]
+
+    # Data extracted from the PDF (Metric Tap Chart section)
+    metric_screw_data = [
+        ("M1.5", [(0.35, 1.15, 1.25)]),
+        ("M1.6", [(0.35, 1.25, 1.35)]),
+        ("M1.8", [(0.35, 1.45, 1.55)]),
+        ("M2", [(0.45, 1.55, 1.70), (0.40, 1.60, 1.75)]),
+        ("M2.2", [(0.45, 1.75, 1.90)]),
+        ("M2.5", [(0.45, 2.05, 2.20)]),
+        ("M3", [(0.60, 2.40, 2.60), (0.50, 2.50, 2.70)]),
+        ("M3.5", [(0.60, 2.90, 3.10)]),
+        ("M4", [(0.75, 3.25, 3.50), (0.70, 3.30, 3.50)]),
+        ("M4.5", [(0.75, 3.75, 4.00)]),
+        ("M5", [(1.00, 4.00, 4.40), (0.90, 4.10, 4.40), (0.80, 4.20, 4.50)]),
+        ("M5.5", [(0.90, 4.60, 4.90)]),
+        ("M6", [(1.00, 5.00, 5.40), (0.75, 5.25, 5.50)]),
+        ("M7", [(1.00, 6.00, 6.40), (0.75, 6.25, 6.50)]),
+        ("M8", [(1.25, 6.80, 7.20), (1.00, 7.00, 7.40)]),
+        ("M9", [(1.25, 7.80, 8.20), (1.00, 8.00, 8.40)]),
+        ("M10", [(1.50, 8.50, 9.00), (1.25, 8.80, 9.20), (1.00, 9.00, 9.40)]),
+        ("M11", [(1.50, 9.50, 10.00)]),
+        ("M12", [(1.75, 10.30, 10.90), (1.50, 10.50, 11.00), (1.25, 10.80, 11.20)]),
+        ("M14", [(2.00, 12.10, 12.70), (1.50, 12.50, 13.00), (1.25, 12.80, 13.20)]),
+        ("M15", [(1.50, 13.50, 14.00)]),
+        ("M16", [(2.00, 14.00, 14.75), (1.50, 14.50, 15.00)]),
+        ("M17", [(1.50, 15.50, 16.00), (2.50, 15.50, 16.50)]),
+        ("M18", [(2.00, 16.00, 16.75), (1.50, 16.50, 17.00)]),
+        ("M20", [(2.00, 18.00, 18.50), (1.50, 18.50, 19.00)]),
+    ]
+
+    # Convert screw data to objects
+    for size, major, tpis in standard_screw_data:
+        screw = StandardScrew(size, major)
+        for tpi_info in tpis:
+            screw.add_tpi(TPI(*tpi_info))
+        standard_screws.append(screw)
+    for size, thread_pitches in metric_screw_data:
+        screw = MetricScrew(size)
+        for thread_pitch_info in thread_pitches:
+            screw.add_pitch(ThreadPitch(*thread_pitch_info))
+        metric_screws.append(screw)
+
+    while True:
+        # Select a Standard & Metric Screw Size
+        select_screw = random.randint(0, 22)
+        current_standard_screw = standard_screws[select_screw]
+        select_screw = random.randint(0, 24)
+        current_metric_screw = metric_screws[select_screw]
+
+        # Select a TPI for the Standard Screw
+        standard_list_size = len(current_standard_screw.tpi_list)
+        metric_list_size = len(current_metric_screw.pitch_list)
+        if (standard_list_size == 1) or (metric_list_size == 1):
+            select_tpi = 0
+        else:
+            select_tpi = random.randint(0, 1)
+
+        current_tpi_object = current_standard_screw.tpi_list[select_tpi]
+        current_thread_pitch_object = current_metric_screw.pitch_list[select_tpi]
+
+        # Determine tap drill size, material, and thread type
+        if select_tpi == 0:
+            current_standard_tap_drill = current_tpi_object.al_dec
+            current_metric_tap_drill = current_thread_pitch_object.al_dec
+            material = "aluminum"
+            thread_type = "UNC"
+        else:
+            current_standard_tap_drill = current_tpi_object.stl_dec
+            current_metric_tap_drill = current_thread_pitch_object.stl_dec
+            material = "steel"
+            thread_type = "UNF"
+
+        # Menu
+        user_input = int(input("""
+Select Menu Option:
+  0. Quit
+  1. Generate tap drill question (Standard)
+  2. Generate hole callout question (Standard)
+  3. Generate tap drill question (Metric)
+  4. Generate hole callout question (Metric)
+  5. Generate random tap drill question
+  6. Generate random hole callout question
+  """))
+
+        if user_input == 0:
+            break
+
+        # --- OPTION 1 ---
+        if user_input == 1:
+
+            tap_drill_generator(current_standard_screw, material, current_standard_tap_drill)
+
+        # --- OPTION 2 ---
+        elif user_input == 2:
+
+            hole_callout_generator(current_standard_screw, material, current_standard_tap_drill,
+                                   current_tpi_object, thread_type)
+        
+        # --- OPTION 3 ---
+        elif user_input == 3:
+
+            tap_drill_generator(current_metric_screw, material, current_metric_tap_drill)
+                
+        # --- OPTION 4 ---
+        elif user_input == 4:
+            hole_callout_generator(current_metric_screw, material, current_metric_tap_drill,
+                                   current_thread_pitch_object, thread_type)
+
+        # --- OPTION 5 ---
+        elif user_input == 5:
+            dice = random.randint(0, 1)
+            if dice == 1:
+                tap_drill_generator(current_standard_screw, material, current_standard_tap_drill)
+            else:
+                tap_drill_generator(current_metric_screw, material, current_metric_tap_drill)
+
+        # --- OPTION 6 ---
+        elif user_input == 6:
+            dice = random.randint(0, 1)
+            if dice == 1:
+                hole_callout_generator(current_standard_screw, material, current_standard_tap_drill, current_tpi_object,
+                                       thread_type)
+            else:
+                hole_callout_generator(current_metric_screw, material, current_metric_tap_drill,
+                                       current_thread_pitch_object, thread_type)
+
+        else:
+            print("Invalid input. Please try again.")
+
+
+if __name__ == "__main__":
+    main()
+
+```
