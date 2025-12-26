@@ -35,7 +35,9 @@ Welcome to my website! Feel free to explore my website and check out my projects
 [Projects](projects/){: .btn .btn--primary}
 [About](about/){: .btn .btn--primary}
 
-
+<br>
+<br>
+<br>
 
 
 
