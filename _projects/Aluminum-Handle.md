@@ -5,7 +5,8 @@ layout: single
 header:
   overlay_image: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
   overlay_filter: 0.4
-excerpt: "Copy & paste the code here to use this page as a template"
+excerpt: "Through Autodesk’s *Project in a Box* program, I learned CNC machining by modeling and CAM-programming a speed vise handle in Fusion 360—overcoming version differences and a new interface with TA mentorship—while also gaining hands-on experience in tool setup, machine operation, and basic 3D printing.
+"
 classes: full
 read_time: true
 
