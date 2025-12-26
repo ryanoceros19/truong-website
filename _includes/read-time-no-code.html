@@ -1,0 +1,20 @@
+{% assign content = include.content %}
+
+{%- comment -%}
+Remove fenced code blocks (``` or ~~~)
+{%- endcomment -%}
+{% assign content = content | replace_regex: '```[\s\S]*?```', '' %}
+{% assign content = content | replace_regex: '~~~[\s\S]*?~~~', '' %}
+
+{%- comment -%}
+Remove inline code
+{%- endcomment -%}
+{% assign content = content | replace_regex: '`[^`]+`', '' %}
+
+{%- comment -%}
+Count words
+{%- endcomment -%}
+{% assign words = content | strip_html | number_of_words %}
+{% assign minutes = words | divided_by: 200 | at_least: 1 %}
+
+{{ minutes }} min read
