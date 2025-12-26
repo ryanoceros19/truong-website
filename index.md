@@ -37,8 +37,9 @@ Welcome to my website! Feel free to explore my website and check out my projects
 
 
 
- **Notable Projects** {: .text-center}
+ **Notable Projects** 
  ==================
+ {: .text-center}
 
 
 {% include feature_row %}
