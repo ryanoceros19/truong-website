@@ -1,11 +1,11 @@
 ---
-title: "DML Air Engine CNC"
+title: "Template Project"
 date: 2025-12-26
 layout: single
 header:
   overlay_image: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
   overlay_filter: 0.4
-excerpt: "To improve the Design & Manufacturing Lab air engine activity, I modeled and precisely manufactured new engine components in Fusion 360—replacing previously hand-made, slightly inaccurate parts—by developing validated CAM toolpaths that produced functional, in-tolerance components for student diagnostics and learning."
+excerpt: "Copy & paste the code here to use this page as a template"
 classes: full
 read_time: true
 
