@@ -37,10 +37,9 @@ Welcome to my website! Feel free to explore my website and check out my projects
 
 
 
- **Notable Projects** 
- ==================
- {: .text-center}
-<h2 align="center">My Centered Header</h2>
+
+
+<h2 align="center">Notable Projectsr</h2>
 
 {% include feature_row %}
 
