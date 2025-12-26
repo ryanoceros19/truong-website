@@ -8,7 +8,6 @@ header:
 excerpt: "Through Autodesk’s *Project in a Box* program, I learned CNC machining by modeling and CAM-programming a speed vise handle in Fusion 360—overcoming version differences and a new interface with TA mentorship—while also gaining hands-on experience in tool setup, machine operation, and basic 3D printing.
 "
 classes: wide
-read_time: true
 
 gallery_DML_CNC_engine:
   - image_path: /assets/images/dml-engine-cnc/DML_CNC_CornerAngle.JPG
