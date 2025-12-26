@@ -71,7 +71,6 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: true
       enable_copy_code_button: true
 
 
@@ -81,6 +80,7 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
 
 
 
