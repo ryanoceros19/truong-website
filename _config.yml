@@ -63,6 +63,8 @@ defaults:
       comments: true
       share: true
       related: true
+      enable_copy_code_button: true
+
   # _pages
   - scope:
       path: "_pages"
@@ -70,6 +72,8 @@ defaults:
     values:
       layout: single
       author_profile: true
+      enable_copy_code_button: true
+
 
 category_archive:
   type: liquid
@@ -77,4 +81,5 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
 
