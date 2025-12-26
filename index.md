@@ -8,7 +8,7 @@ header:
 class: wide
   
 feature_row:
-  - image_path: /assets/images/cnc-tiki/tiki_front.jpg
+  - image_path: /assets/images/cnc-tiki/tiki-cover.png
     alt: "Aluminum CNC Tiki Front"
     title: "Aluminum CNC Tiki"
     excerpt: "Aluminum CNC Project involving CNC Mill, Fusion360, CAM, DFM"
