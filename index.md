@@ -22,7 +22,7 @@ feature_row:
     url: projects/dml-air-engine-cnc/
     btn_label: "Read More"
     btn_class: "btn--inverse"
-  - image_path: /assets/images/
+  - image_path: /assets/images/tap-and-drill-code.png
     title: "Tap & Drill Question Generator in Python"
     excerpt: "Python Code that generates varying questions including tap drill size recall and hole callout recall"
     url: projects/tap-and-drill-question-generator/
