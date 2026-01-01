@@ -2,9 +2,6 @@
 layout: single
 author_profile: true
 title: "Welcome!"
-header:
-  show_navigation: true
-
 class: wide
   
 feature_row:
