@@ -23,6 +23,7 @@ As a TA, I have taken initiative to improve both instructional quality and lab e
 *Insert pic of CNC machining w/ Liam & , Day 1 engines, and ___*
 
 Outside of coursework, I apply these skills through personal manufacturing projects. One example is a CNC-machined aluminum tiki gift, where tool-size limitations required internal corners to be slightly rounded, influencing both the design geometry and CAM strategy. I have also designed and 3D-printed functional items such as a trash bag clip and a desk lamp mount, both of which required multiple iterations to balance clamping force, fit, installation constraints, and load-bearing considerations. These projects emphasize my interest in iterative design, prototyping, and designing around real manufacturing constraints.
+
 *Insert pic of Tiki, trash clip iterations, and installed lamp clamp*
 
 [Projects](projects/){: .btn .btn--primary} 
