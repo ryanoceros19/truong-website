@@ -29,8 +29,8 @@ feature_row:
 I am a 4th year Mechnical Engineering student with a Computer Science minor. I have a major focus on machining manufacturing
 Welcome to my website! Feel free to explore my website and check out my projects!
 
-[Projects](projects/){: .btn .btn--primary} <br>
-[About](about/){: .btn .btn--primary}
+[Projects](/truong-website/projects/){: .btn .btn--primary} <br>
+[About](/truong-website/about/){: .btn .btn--primary}
 
 <br>
 <br>
