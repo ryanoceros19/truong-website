@@ -16,8 +16,13 @@ At the University of Florida, I am currently a member of Ace Dance Company, a st
 
 My interest in manufacturing was solidified through Design and Manufacturing Lab, where I learned design for manufacturability and produced air engine components using manual machining processes. After shadowing teaching assistants over the summer, I became a teaching assistant for the course and currently serve as a DML TA, overseeing lab sections, instructing students on mill and lathe operations, and providing feedback on technical reports.
 
+*Insert Pic of Matching TA Fit,___, and ___*
+
 As a TA, I have taken initiative to improve both instructional quality and lab efficiency. I modified CNC CAM programs to improve part edge quality, redesigned homework solution sets to better support office hours, updated lab labeling systems, and remanufactured instructional engine components to tighter tolerances using CNC machining. I also developed a Python-based hole callout question generator to help students practice reading engineering drawings, which I continue to maintain and refine.
 
-Outside of coursework, I apply these skills through personal manufacturing projects. One example is a CNC-machined aluminum tiki gift, where tool-size limitations required internal corners to be slightly rounded, influencing both the design geometry and CAM strategy. I have also designed and 3D-printed functional items such as a trash bag clip and a desk lamp mount, both of which required multiple iterations to balance clamping force, fit, installation constraints, and load-bearing considerations. These projects emphasize my interest in iterative design, prototyping, and designing around real manufacturing constraints.
+*Insert pic of CNC machining w/ Liam & , Day 1 engines, and ___*
 
-[Link to Project Page]
+Outside of coursework, I apply these skills through personal manufacturing projects. One example is a CNC-machined aluminum tiki gift, where tool-size limitations required internal corners to be slightly rounded, influencing both the design geometry and CAM strategy. I have also designed and 3D-printed functional items such as a trash bag clip and a desk lamp mount, both of which required multiple iterations to balance clamping force, fit, installation constraints, and load-bearing considerations. These projects emphasize my interest in iterative design, prototyping, and designing around real manufacturing constraints.
+*Insert pic of Tiki, trash clip iterations, and installed lamp clamp*
+
+[Projects](projects/){: .btn .btn--primary} 
