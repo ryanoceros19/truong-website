@@ -26,4 +26,4 @@ Outside of coursework, I apply these skills through personal manufacturing proje
 
 *Insert pic of Tiki, trash clip iterations, and installed lamp clamp*
 
-[Projects](/projects/){: .btn .btn--primary} 
+[Projects](/truong-website/projects/){: .btn .btn--primary} 
