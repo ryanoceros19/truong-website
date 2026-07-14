@@ -26,8 +26,7 @@ feature_row:
     btn_label: "Read More"
     btn_class: "btn--inverse"
 ---
-I am a 4th year Mechnical Engineering student with a Computer Science minor. I have a major focus on machining manufacturing
-Welcome to my website! Feel free to explore my website and check out my projects!
+Welcome to my website! Although it is still a work-in-progress, feel free to explore my website and check out my projects!
 
 [Projects](/truong-website/projects/){: .btn .btn--primary} <br>
 [About](/truong-website/about/){: .btn .btn--primary}
